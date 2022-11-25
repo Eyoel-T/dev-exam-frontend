@@ -36,7 +36,7 @@ const Update = () => {
       setLoading(false);
       showNotification({
         type: "error",
-        message: err?.response?.data.message || err?.response?.data,
+        message: error?.response?.data.message || error?.response?.data,
       });
     }
   };

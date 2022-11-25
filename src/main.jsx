@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
     <ToastContainer
-      position="top-center"
+      position="top-right"
       autoClose={2000}
       closeOnClick
       pauseOnFocusLoss
