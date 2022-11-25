@@ -70,7 +70,7 @@ packages:
   /@ant-design/icons/4.0.0_react@18.2.0:
     resolution: {integrity: sha512-oJTNTyo/6DjVmK/DSa58A+7gZRGgzBCAEJ9Pfa6U+BAZO28tvOE3YzlQd9gq9Qu6d47JL1ixyID3qsmRFqitlQ==}
     engines: {node: '>=8'}
-    peerDependencies:
+    peerDependenctsies:
       react: 16.x
     dependencies:
       '@ant-design/colors': 3.2.2
