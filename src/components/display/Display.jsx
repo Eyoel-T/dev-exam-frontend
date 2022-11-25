@@ -36,7 +36,7 @@ const Display = () => {
     const fetchStructure = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("/get-structure");
+        const res = await axios.get("get-structure");
         setStructure([res.data.structure]);
         setLoading(false);
       } catch (error) {
