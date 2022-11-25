@@ -4,7 +4,7 @@ const axiosInstance = axios.create({
   baseURL:
     environment === "dev"
       ? "http://localhost:5000/api/"
-      : "https://dev-api-zppp.onrender.com/api/",
+      : "https://dev-exam-api.herokuapp.com/api/",
 });
 
 export default axiosInstance;
