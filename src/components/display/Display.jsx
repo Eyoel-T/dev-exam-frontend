@@ -4,12 +4,12 @@ import { Tree, Button } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import useShowNotification from "../hooks/useShowNotification";
-import useShowLoadingSpinner from "../hooks/useShowLoadingSpinner";
+
 import { Spin } from "antd";
 const Display = () => {
   const [structure, setStructure] = useState(null);
   const { showNotification } = useShowNotification();
-  const { loading, setLoading } = useShowLoadingSpinner();
+  const [loading, setLoading] = useState(false);
 
   const deleteAllDepartment = async () => {
     try {

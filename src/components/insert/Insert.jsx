@@ -1,12 +1,12 @@
 import "./insert.scss";
-import { AutoComplete, Button, Input, Switch, Select } from "antd";
-import { useEffect, useState } from "react";
+import { Button, Input, Switch, Select } from "antd";
+import { useState } from "react";
 import { useRef } from "react";
 import axios from "../../axios.config";
 import useShowNotification from "../hooks/useShowNotification";
 import useFetchDepartments from "../hooks/useFetchDepartments";
 import { Spin } from "antd";
-import useShowLoadingSpinner from "../hooks/useShowLoadingSpinner";
+
 const Insert = () => {
   const [inputs, setInputs] = useState({
     departmentName: "",
@@ -14,11 +14,11 @@ const Insert = () => {
     managingDepartment: "",
     parent: false,
   });
+  const [loading, setLoading] = useState(false);
 
   /* Destructuring the object returned by the hooks. */
-  const { options, fetchDepartmentList } = useFetchDepartments();
+  const { options, fetchDepartmentList, fetching } = useFetchDepartments();
   const { showNotification } = useShowNotification();
-  const { loading, setLoading } = useShowLoadingSpinner();
 
   const updateInputs = (inputKey, value) => {
     setInputs((prev) => {
@@ -59,7 +59,7 @@ const Insert = () => {
 
   return (
     <form className="insert">
-      {loading && <Spin />}
+      {(loading || fetching) && <Spin />}
       <div className="formItem">
         <span>Department Name</span>
 

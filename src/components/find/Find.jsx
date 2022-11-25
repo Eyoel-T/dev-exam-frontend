@@ -5,13 +5,13 @@ import axios from "../../axios.config";
 import { useEffect, useState } from "react";
 import { Button, Input, Select, Switch, Tree } from "antd";
 import useFetchDepartments from "../hooks/useFetchDepartments";
-import useShowLoadingSpinner from "../hooks/useShowLoadingSpinner";
+
 import { Spin } from "antd";
 
 const Find = () => {
   /* Destructuring the object returned by the hook. */
-  const { options, fetchDepartmentList } = useFetchDepartments();
-  const { loading, setLoading } = useShowLoadingSpinner();
+  const { fetching, options, fetchDepartmentList } = useFetchDepartments();
+  const [loading, setLoading] = useState(false);
 
   const [selectedDepartment, setSelectedDepartment] = useState(null);
   const [showStructure, setShowStructure] = useState(false);
@@ -34,7 +34,7 @@ const Find = () => {
 
   return (
     <div className="find">
-      {loading && <Spin />}
+      {(loading || fetching) && <Spin />}
       {selectedDepartment === null && (
         <Select
           style={{

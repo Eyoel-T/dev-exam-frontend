@@ -3,13 +3,13 @@ import { AutoComplete, Button, Input, Select, Switch } from "antd";
 import axios from "../../axios.config";
 import { useEffect, useState } from "react";
 import useFetchDepartments from "../hooks/useFetchDepartments";
-import useShowLoadingSpinner from "../hooks/useShowLoadingSpinner";
+
 import { Spin } from "antd";
 import useShowNotification from "../hooks/useShowNotification";
 const Update = () => {
   /* Destructuring the object returned by the useFetchDepartments hook. */
-  const { options, fetchDepartmentList } = useFetchDepartments();
-  const { loading, setLoading } = useShowLoadingSpinner();
+  const { fetching, options, fetchDepartmentList } = useFetchDepartments();
+  const [loading, setLoading] = useState(false);
   const { showNotification } = useShowNotification();
 
   const [selectedDepartment, setSelectedDepartment] = useState(null);
@@ -59,7 +59,8 @@ const Update = () => {
 
   return (
     <div className="update">
-      {loading && <Spin />}
+      {(loading || fetching) && <Spin />}
+
       {selectedDepartment === null && (
         <Select
           style={{

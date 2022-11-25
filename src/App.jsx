@@ -28,27 +28,26 @@ for all options except the one that is passed in. */
     <div className="app">
       <div className="menu">
         <button
-          className={options.insert && "active"}
+          className={options.insert ? "active" : undefined}
           onClick={() => displayOption("insert")}
         >
           Insert Department
         </button>
         <button
           onClick={() => displayOption("update")}
-          className={options.update && "active"}
+          className={options.update ? "active" : undefined}
         >
           Update Department
         </button>
         <button
           onClick={() => displayOption("find")}
-          className={options.find && "active"}
+          className={options.find ? "active" : undefined}
         >
           Find Department
         </button>
         <button
           onClick={() => displayOption("display")}
-          className={options.display && "active"}
-          s
+          className={options.display ? "active" : undefined}
         >
           Display All Department
         </button>
